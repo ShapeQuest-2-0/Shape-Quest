@@ -27,7 +27,7 @@ db.on('error', (err) => {
 })
 
 db.once('open', () => {
-console.log('Connected to Database');
+    console.log('Connected to Database');
 });
 
 app.use(bodyParser.json());
