@@ -12,12 +12,13 @@ function App() {
         <Router>
             <div id="app-header">
                 <h1 id="app-title"><img src={CilinderLight2} />    ShapeQuest    <img src={CilinderLight2} /></h1>
+                <h2 id="app-tagline">Shaping brighter futures!!</h2>
             </div>
             <div>
                 <Routes>
-                    {/* <Route path="/" element={<LoginForm />} /> */}
+                    <Route path="/" element={<LoginForm />} />
                     <Route path="/SignUpForm" element={<SignUpForm />} />
-                    <Route path="/" element={<GameContainer />} />
+                    <Route path="/GameContainer" element={<GameContainer />} />
                 </Routes>
             </div>
         </Router>
