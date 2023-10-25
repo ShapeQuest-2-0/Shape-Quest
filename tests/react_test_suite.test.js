@@ -5,14 +5,14 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 import LoginForm from '../src/components/LoginForm';
-
+import ColorTools from '../src/components/ColorTools';
 //does the login form render input fields?..
 //test the buttons
 
 describe('Unit testing React components', () => {
 
   describe('LoginForm', () => {
-    let loginForm;
+
     const props = {
       username: 'Robert',
       password: 'stabrabbit',
@@ -27,7 +27,7 @@ describe('Unit testing React components', () => {
           </Routes>
         </Router>
         )
-    })
+    });
 
     test('Contains a Login In button', async () => {
       
@@ -52,9 +52,13 @@ describe('Unit testing React components', () => {
 
   })
 
-  // describe('Unit testing ColorTools', () => {
+  describe('Unit testing ColorTools', () => {
     
-  //   describe('ColorTools', () =>{})
-  // })
+    describe('ColorTools', () => {
+      beforeEach(() => {
+        render(<ColorTools />)
+      })
+    })
+  })
 
 })
