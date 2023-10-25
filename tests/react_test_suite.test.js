@@ -51,4 +51,10 @@ describe('Unit testing React components', () => {
     })
 
   })
+
+  describe('Unit testing ColorTools', () => {
+    
+    describe('ColorTools', () =>{})
+  })
+
 })
