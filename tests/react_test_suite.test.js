@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event';
 
 import LoginForm from '../src/components/LoginForm';
 
@@ -18,7 +19,7 @@ describe('Unit testing React components', () => {
       loggedIn: false
     };
 
-    beforeAll(() => {
+    beforeEach(() => {
       render(
         <Router>
           <Routes>
@@ -38,9 +39,15 @@ describe('Unit testing React components', () => {
 
     })
 
-    test('HandleSubmit function is invoked when button is clicked', async () => {
+    test('Login button does not trigger when clicked without username and password input', async () => {
+      const props = {
+        handleSubmit: jest.fn(),
+      }
+
       const buttons = await screen.findAllByRole('button');
-      
+      console.log(buttons[0]);
+      userEvent.click(buttons[0]);
+      expect(props.handleSubmit).toHaveBeenCalledTimes(0);
     })
 
   })
