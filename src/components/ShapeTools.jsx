@@ -11,7 +11,6 @@ import React from 'react';
 //         </section>
 //     )
 // }
-// console.log(test);
 
 function ShapeTools({ setSelectedShape }) {
   return (
