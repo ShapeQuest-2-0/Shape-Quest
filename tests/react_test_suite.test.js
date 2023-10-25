@@ -1,25 +1,41 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+<<<<<<< HEAD
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 import LoginForm from '../src/components/LoginForm';
 import ColorTools from '../src/components/ColorTools';
+=======
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'
+
+import LoginForm from '../src/components/LoginForm';
+
+>>>>>>> dev
 //does the login form render input fields?..
 //test the buttons
 
 describe('Unit testing React components', () => {
 
   describe('LoginForm', () => {
+<<<<<<< HEAD
 
+=======
+    let loginForm;
+>>>>>>> dev
     const props = {
       username: 'Robert',
       password: 'stabrabbit',
       loggedIn: false
     };
 
+<<<<<<< HEAD
     beforeEach(() => {
+=======
+    beforeAll(() => {
+>>>>>>> dev
       render(
         <Router>
           <Routes>
@@ -27,7 +43,11 @@ describe('Unit testing React components', () => {
           </Routes>
         </Router>
         )
+<<<<<<< HEAD
     });
+=======
+    })
+>>>>>>> dev
 
     test('Contains a Login In button', async () => {
       
@@ -39,6 +59,7 @@ describe('Unit testing React components', () => {
 
     })
 
+<<<<<<< HEAD
     test('Login button does not trigger when clicked without username and password input', async () => {
       const props = {
         handleSubmit: jest.fn(),
@@ -61,4 +82,12 @@ describe('Unit testing React components', () => {
     })
   })
 
+=======
+    test('HandleSubmit function is invoked when button is clicked', async () => {
+      const buttons = await screen.findAllByRole('button');
+      
+    })
+
+  })
+>>>>>>> dev
 })
