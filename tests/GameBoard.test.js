@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, getByText } from '@testing-library/react';
-import GameBoard from '../src/components/GameBoard';
+import { render } from '@testing-library/react';
+// import GameBoard from '../src/components/GameBoard';
+import GameBoard, { backgroundMusic } from '../src/components/GameBoard';
 import { Howl } from 'howler';
 import { initializedSounds } from '../src/sounds';
 
@@ -42,4 +43,12 @@ describe('Gameboard tests', () => {
 
     expect(Howl).toHaveBeenCalledWith({ src: [soundObj.src] });
   });
+
+  it('it should play background music when GameBoard is rendered', () => {
+    render(<GameBoard />);
+    // console.log('helper functions returned from render: ', renderHelpers);
+    console.log('logging backgroundMusic to terminal: ', backgroundMusic)
+    expect(Howl).toHaveBeenCalledWith({ src: backgroundMusic.src });
+  })
+
 });

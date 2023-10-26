@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Howl, Howls } from 'howler';
 import '/src/sass/styles.css';
 import { initializedSounds } from '../sounds';
+import jollyrogerbay from '../sounds/jollyrogerbay.mp3';
+
 // const GameBoard = () => {
 //     return (
 //         <div className="game-board">
@@ -22,6 +24,15 @@ import { initializedSounds } from '../sounds';
 //     );
 // };
 
+export const backgroundMusic = new Howl({
+  src: jollyrogerbay,
+  autoplay: true,
+  loop: true,
+  volume: 0.8
+})
+
+backgroundMusic.play();  
+
 const shapeSoundMap = {
   square: 0,
   circle: 1,
@@ -30,6 +41,15 @@ const shapeSoundMap = {
   diamond: 4,
 };
 
+const colorSoundMap = {
+  blue: 5,
+  red: 6,
+  yellow: 7,
+  purple: 8,
+  green: 9,
+  orange: 10
+}
+
 const playSoundForShape = shape => {
   const soundIndex = shapeSoundMap[shape];
 
@@ -37,7 +57,17 @@ const playSoundForShape = shape => {
     initializedSounds[soundIndex].howl.play();
   }
 };
+
+const playSoundForColor = color => {
+  const colorIndex = colorSoundMap[color];
+
+  if (colorIndex !== undefined && initializedSounds[colorIndex]) {
+    initializedSounds[colorIndex].howl.play();
+  }
+}
+
 const GameBoard = ({ selectedShape, selectedColor }) => {
+  
   const [shapes, setShapes] = useState([]);
   const [color, setColor] = useState('White');
 
@@ -57,6 +87,8 @@ const GameBoard = ({ selectedShape, selectedColor }) => {
   React.useEffect(() => {
     if (selectedColor) {
       setColor(selectedColor);
+
+      playSoundForColor(selectedColor);
     }
   }, [selectedColor]);
 
