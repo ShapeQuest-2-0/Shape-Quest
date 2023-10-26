@@ -88,7 +88,7 @@ describe('Unit testing React components', () => {
 
       test('Renders the specified color when clicked', async () => {
         const setSelectedColor = jest.fn();
-        render(<ColorTools setSelectedColor={setSelectedColor}/>)
+        render(<ColorTools setSelectedColor={setSelectedColor}/>) // render is not from react!!
         const redButton = screen.getByText('Red');
         // console.log('this should be the redButton: ', screen.getByText('Red'))
         userEvent.click(redButton);
