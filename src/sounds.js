@@ -37,6 +37,7 @@ export const initializedSounds = sounds.map(sound => {
     ...sound,
     howl: new Howl({
       src: [sound.src],
+      volume: .3
     }),
   };
 });

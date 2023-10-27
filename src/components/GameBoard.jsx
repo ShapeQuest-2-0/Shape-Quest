@@ -28,7 +28,7 @@ export const backgroundMusic = new Howl({
   src: jollyrogerbay,
   autoplay: true,
   loop: true,
-  volume: 0.8
+  volume: 0.15
 })
 
 backgroundMusic.play();  
