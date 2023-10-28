@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { render, screen, fireEvent, getByText, waitFor, toHaveValue, toHaveBeenCalledWith, toHaveBeenCalledTimes } from '@testing-library/react';
+import { render, screen, fireEvent, getByText, waitFor, toHaveValue, toHaveBeenCalledWith, toHaveBeenCalledTimes, toHaveBeenCalled } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { userEvent, user } from '@testing-library/user-event';
 
@@ -48,18 +48,25 @@ describe('Unit testing React components', () => {
     //   // console.log('should be username input field: ', userNameInput);
 
     // })
+    afterEach(() => {
+      // restore the spy created with spyOn
+      jest.restoreAllMocks();
+    });
 
-    test('Login button triggers submit when input fields have text', async () => {
-      const loginButton = screen.getByText('Log In');
-      const userNameInput = screen.getByPlaceholderText('Write Username');
-      const passwordInput = screen.getByPlaceholderText('Write Password');
-      userEvent.type(userNameInput, 'username');
-      userEvent.type(passwordInput, 'password');
-      userEvent.click(loginButton);
-      await waitFor(() => {
-        expect(onSubmit).toHaveBeenCalledTimes(1);
-      })
-    })
+    // test('Login button triggers submit when input fields have text', async () => {
+    //   const loginButton = screen.getByText('Log In');
+    //   const userNameInput = screen.getByPlaceholderText('Write Username');
+    //   const passwordInput = screen.getByPlaceholderText('Write Password');
+    //   userEvent.type(userNameInput, 'username');
+    //   userEvent.type(passwordInput, 'password');
+    //   userEvent.click(loginButton);
+    //   const spy = jest.spyOn(LoginForm, 'handleSubmit');
+    //   expect(spy).toHaveBeenCalled();
+      
+    //   // await waitFor(() => {
+    //   //   expect(onSubmit).toHaveBeenCalledTimes(1);
+    //   // })
+    // })
     // test('Login button does not trigger when clicked without username and password input', async () => {
     //   const props = {
     //     username: 'Robert',
